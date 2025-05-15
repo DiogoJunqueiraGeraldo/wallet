@@ -3,7 +3,6 @@ package com.wallet.wallets_command_service.services;
 import com.wallet.wallets_command_service.dtos.PostTransactionDTO;
 import com.wallet.wallets_command_service.entities.WalletEventType;
 import com.wallet.wallets_command_service.errors.ZeroValueTransactionException;
-import com.wallet.wallets_command_service.repositories.WalletEventRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;

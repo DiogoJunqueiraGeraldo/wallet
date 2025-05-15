@@ -2,7 +2,6 @@ package com.wallet.wallets_command_service.mappers;
 
 import com.wallet.wallets_command_service.dtos.PostTransactionDTO;
 import com.wallet.wallets_command_service.entities.WalletEventEntity;
-import com.wallet.wallets_command_service.entities.WalletEventType;
 import com.wallet.wallets_command_service.entities.keys.WalletEventKey;
 
 public class WalletEventMapper {

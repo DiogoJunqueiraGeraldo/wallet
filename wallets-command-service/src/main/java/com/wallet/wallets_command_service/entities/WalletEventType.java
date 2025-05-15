@@ -12,13 +12,6 @@ public enum WalletEventType {
         this.value = value;
     }
 
-    public static WalletEventType of(String eventType) {
-        return Arrays.stream(WalletEventType.values())
-                .filter(walletEventType -> walletEventType.value.equals(eventType))
-                .findFirst()
-                .orElseThrow(IllegalArgumentException::new);
-    }
-
     @Override
     public String toString() {
         return value;

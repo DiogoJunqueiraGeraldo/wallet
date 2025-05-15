@@ -1,7 +1,5 @@
 package com.wallet.wallets_command_service.entities;
 
-import java.util.Arrays;
-
 public enum WalletEventType {
     WITHDRAW("withdraw"),
     DEPOSIT("deposit"),

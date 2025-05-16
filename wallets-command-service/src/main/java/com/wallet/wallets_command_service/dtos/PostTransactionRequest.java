@@ -1,4 +1,4 @@
-package com.wallet.wallets_command_service.controllers;
+package com.wallet.wallets_command_service.dtos;
 
 import jakarta.validation.constraints.*;
 

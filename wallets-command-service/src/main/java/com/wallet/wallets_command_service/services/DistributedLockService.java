@@ -1,11 +1,11 @@
 package com.wallet.wallets_command_service.services;
 
+import com.wallet.wallets_command_service.errors.LockingTimeoutException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -24,17 +24,17 @@ public class DistributedLockService {
         return resource + ":lock:" + id;
     }
 
-    public Optional<String> tryLock(String resource, UUID id) {
+    public String tryLock(String resource, UUID id) {
         ValueOperations<String, String> ops = redisTemplate.opsForValue();
         String value = UUID.randomUUID().toString();
         String key = getLockKey(resource, id);
         Boolean success = ops.setIfAbsent(key, value, lockTimeoutMs, TimeUnit.MILLISECONDS);
 
         if (Boolean.TRUE.equals(success)) {
-            return Optional.of(value);
+            return value;
         }
 
-        return Optional.empty();
+        throw new LockingTimeoutException("Timeout - Try again later.");
     }
 
     public void releaseLock(String resource, UUID id, String value) {

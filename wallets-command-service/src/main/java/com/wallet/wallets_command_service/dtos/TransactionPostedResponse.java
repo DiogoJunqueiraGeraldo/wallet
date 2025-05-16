@@ -1,6 +1,4 @@
-package com.wallet.wallets_command_service.controllers;
-
-import com.wallet.wallets_command_service.dtos.PostTransactionDTO;
+package com.wallet.wallets_command_service.dtos;
 
 import java.math.BigDecimal;
 import java.time.Instant;

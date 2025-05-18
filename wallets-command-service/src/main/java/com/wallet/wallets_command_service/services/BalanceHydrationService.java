@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class EventReplayService {
+public class BalanceHydrationService {
     private final EventRepository eventRepository;
     private final WalletSnapshotRepository snapshotRepository;
 
-    public EventReplayService(EventRepository eventRepository, WalletSnapshotRepository snapshotRepository) {
+    public BalanceHydrationService(EventRepository eventRepository, WalletSnapshotRepository snapshotRepository) {
         this.eventRepository = eventRepository;
         this.snapshotRepository = snapshotRepository;
     }

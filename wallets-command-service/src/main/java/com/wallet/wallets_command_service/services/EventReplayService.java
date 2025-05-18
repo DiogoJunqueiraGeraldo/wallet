@@ -23,10 +23,10 @@ public class EventReplayService {
     public BigDecimal getBalance(UUID walletId) {
         WalletSnapshotEntity latestSnapshot = snapshotRepository
                 .findLatestByKeyWalletId(walletId)
-                .orElseGet(() -> WalletSnapshotEntity.empty(walletId));
+                .orElseGet(WalletSnapshotEntity::empty);
 
         List<WalletEventEntity> events = eventRepository.findAllByKeyWalletIdAndKeyMomentAfter(
-                latestSnapshot.getKey().getWalletId(),
+                walletId,
                 latestSnapshot.getKey().getMoment()
         );
 

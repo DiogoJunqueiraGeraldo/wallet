@@ -11,7 +11,6 @@ import org.springframework.data.cassandra.core.mapping.Table;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -25,9 +24,9 @@ public class WalletSnapshotEntity {
     @Column("value")
     private BigDecimal value;
 
-    public static WalletSnapshotEntity empty(UUID walletId) {
+    public static WalletSnapshotEntity empty() {
         return new WalletSnapshotEntity(
-                new WalletSnapshotKey(walletId, Instant.EPOCH),
+                new WalletSnapshotKey(null, Instant.EPOCH),
                 BigDecimal.ZERO
         );
     }
